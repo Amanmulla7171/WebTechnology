@@ -3,8 +3,8 @@ let array=[1,2,3,4,5,6];
 console.log(array[1]);
 
 function addition(){
-    let sum;
-    for(let i=0;i<5;i++){
+    let sum=0;
+    for(let i=1;i<5;i++){
         sum=sum+i;
     }
     return sum;
@@ -99,5 +99,42 @@ for(let i=0;i<array3.length;i++){
 let missing=expectedsum-actualsum;
 console.log("missing number:"+missing);
 
- 
+//vowel in string 
 
+let str="Hello world";
+let count=0;
+let vowel="aeiouAEIOU";
+for(let i=0;i<str.length;i++){
+    if(vowel.includes(str[i])){
+        count++;
+    }
+}
+console.log("Number of vowel is :"+count);
+
+
+//Function with identify odd and even
+ function oddeven(num){
+    if(num%2===0){
+        console.log("Number is even");
+        
+    }
+    else{
+        console.log("Number is odd");
+        
+    }
+ }
+
+oddeven(10);
+
+
+//Function find the sum of array
+let sarray=[1,4,65,54,585,8];
+function sumofarray(sumarray){
+    let sum=0;
+    for(let i=0;i<sumarray.length;i++){
+        sum=sum+sumarray[i];
+    }
+    return sum
+}
+
+console.log("Sum of array"+sumofarray(sarray));
