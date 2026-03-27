@@ -1,0 +1,12 @@
+-express is the minimal and flexible web application  framework that simply the development of web server and api'server
+-why express js use ->the node.js are not use for complicated and big project so use this 
+-feature- routing ,middleware,request and response handling rest api creation,template rendering,
+-
+
+
+-npm-node package manager
+# activity 
+
+1.difference between package.json and package-lock.json
+2.differnec between dev dependencies and dependencies
+3.http request

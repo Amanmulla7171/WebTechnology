@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List App</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 70%;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>My To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    // Load tasks when page loads
+    window.onload = function() {
+        loadTasks();
+    };
+
+    function addTask() {
+        let input = document.getElementById("taskInput");
+        let task = input.value.trim();
+
+        if(task === "") return;
+
+        saveTask(task);
+        displayTask(task);
+
+        input.value = "";
+    }
+
+    function displayTask(task) {
+        let li = document.createElement("li");
+        li.innerHTML = task + 
+            " <button class='delete' onclick='deleteTask(this)'>X</button>";
+
+        document.getElementById("taskList").appendChild(li);
+    }
+
+    function deleteTask(button) {
+        let li = button.parentElement;
+        let taskText = li.firstChild.textContent.trim();
+
+        li.remove();
+        removeTask(taskText);
+    }
+
+    function saveTask(task) {
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function loadTasks() {
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.forEach(task => displayTask(task));
+    }
+
+    function removeTask(task) {
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks = tasks.filter(t => t !== task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+</script>
+
+</body>
+</html>

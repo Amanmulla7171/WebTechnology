@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Experiment</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f5ce;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            background: rgb(93, 72, 72);
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: red;
+        }
+        </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter Name"><br><br>
+        <input type="email" id="email" placeholder="Enter Email"><br><br>
+        <input type="password" id="password" placeholder="Enter Password"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
